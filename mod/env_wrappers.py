@@ -229,7 +229,7 @@ class PoVWithVectorWrapper(gym.ObservationWrapper):
 
     def observation(self, observation):
         pov = observation['pov']
-        vector_scaled = observation['vector'] / self._vector_scale
+        vector_scaled = (observation['vector'] + 1) / 2 / self._vector_scale  # to (0, 255)
         num_elem = pov.shape[-3] * pov.shape[-2]
         vector_channel = np.tile(vector_scaled, num_elem // vector_scaled.shape[-1]).reshape(*pov.shape[:-1], -1)  # noqa
         return np.concatenate([pov, vector_channel], axis=-1)

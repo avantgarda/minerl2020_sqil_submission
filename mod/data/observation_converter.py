@@ -45,7 +45,7 @@ class PoVOnlyConverter:
     def convert_space(self, space):
         pov = space['pov']
         return gym.spaces.Box(
-            low=-255, high=255,
+            low=0, high=255,
             shape=pov.shape,
             dtype=np.float32)
 
@@ -57,14 +57,14 @@ class VectorCombineConverter:
         scale = 1 / 255
         pov, vector = observation['pov'], observation['vector']
         num_elem = pov.shape[-3] * pov.shape[-2]
-        vector_channel = np.tile(vector, num_elem // vector.shape[-1]).reshape(*pov.shape[:-1], -1)  # noqa
+        vector_channel = np.tile((vector + 1) / 2, num_elem // vector.shape[-1]).reshape(*pov.shape[:-1], -1)  # noqa
         return np.concatenate([pov, vector_channel / scale], axis=-1)
 
     def convert_space(self, space):
         pov, vector = space['pov'], space['vector']
         num_new_channel = 1
         return gym.spaces.Box(
-            low=-255, high=255,
+            low=0, high=255,
             shape=(*pov.shape[:-1], pov.shape[-1] + num_new_channel),
             dtype=np.float32)
 
