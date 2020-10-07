@@ -1,6 +1,6 @@
 # NeurIPS 2020: MineRL Competition SQIL Baseline with PFRL
 
-This repository is a **SQIL baseline submission example with [PFRL](https://github.com/pfnet/pfrl)**,
+This repository is a **[soft Q imitation learning (SQIL)](https://arxiv.org/abs/1905.11108) baseline submission example with [PFRL](https://github.com/pfnet/pfrl)**,
 based on [the MineRL Rainbow Baseline with PFRL](https://github.com/keisuke-nakata/minerl2020_submission).
 
 For detailed & latest documentation about the competition/template, see the original template repository.
