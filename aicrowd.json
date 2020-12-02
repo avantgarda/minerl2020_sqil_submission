@@ -1,8 +1,8 @@
 {
   "challenge_id": "aicrowd-neurips-2020-minerl-challenge",
   "grader_id": "aicrowd-neurips-2020-minerl-challenge",
-  "authors": ["minerl_sqil_baseline"],
+  "authors": ["eoin"],
   "tags": "RL",
-  "description": "Test Model for MineRL Challenge",
+  "description": "Baseline SQIL submission",
   "gpu": true
 }
